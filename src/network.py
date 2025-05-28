@@ -37,11 +37,19 @@ class Network:
             if layer is None:   
                 layer = self.layer_head.next
             if layer.neurons.shape[1] != layer.next.weights.shape[0]:
-                raise ValueError("")
-            z = layer.neurons @ layer.next.weights
-            activations = ACTIVATION_MAPPING[layer.next.activation](z)
+                raise ValueError("The input neurons for the L+1 layer were not set to the same dimension as its inputs.")
+            z = layer.neurons @ layer.next.weights + layer.next.biases
+            activations, derivatives = ACTIVATION_MAPPING[layer.next.activation](z)
             layer.next.neurons = activations
+            layer.next.activation_derivatives = derivatives
             layer = layer.next
+
+
+    def backward(self):
+        pass 
+
+    def mini_batch_sgd(self):
+        pass
 
     
 

@@ -10,6 +10,7 @@ class ActivatedLayer:
     weights: np.ndarray
     biases: np.array
     neurons: np.array = None
+    activation_derivatives: np.ndarray = None
     activation: activations = "Relu"
     next: 'ActivatedLayer' = None
     prev: 'ActivatedLayer' = None
