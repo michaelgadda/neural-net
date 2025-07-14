@@ -5,3 +5,6 @@ class activations(str, Enum):
     TANH = "tanh"
     SIGMOID = "sigmoid"
     LINEAR = "linear"
+
+class losses(str, Enum):
+    NEGATIVE_LOG_LOSS = "negative_log_loss"
